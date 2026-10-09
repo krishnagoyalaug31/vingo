@@ -25,7 +25,7 @@ import Shop from './pages/Shop.jsx'
 import { setSocket } from './redux/userSlice.js'
 import { useEffect } from 'react'
 import { io } from 'socket.io-client'
-export const serverUrl ='http://localhost:8000'
+export const serverUrl ='https://vingo-backend-zdbp.onrender.com'
 function App() {
   const dispatch = useDispatch()
   useGetCurrentUser()
