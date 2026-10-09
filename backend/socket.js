@@ -36,7 +36,7 @@ export const socketHandler =  (io) => {
         })
         socket.on('disconnect',async () => {
             try {
-                await User.findByIdAndUpdate({socketId:socket.id},{
+                await User.findOneAndUpdate({socketId:socket.id},{
                 socketId:null,
                 isOnline:false
             })
