@@ -14,19 +14,21 @@ import { socketHandler } from './socket.js'
 dotenv.config()
 const app=express()
 const server = http.createServer(app)
-
+const allowedOrigins = [ "http://localhost:5173", "https://vingo-frontend-m9i3.onrender.com" ]
 const io = new Server(server,{
     cors:{
-    origin:"https://vingo-frontend-m9i3.onrender.com",
+    origin:allowedOrigins,
     credentials:true,
     methods:['POST','GET']
 }
 })
 app.set("io",io) 
 const port = process.env.PORT || 8000
+
 app.use(cors({
-    origin:"http://localhost:5173",
-    credentials:true
+    origin:allowedOrigins,
+    credentials:true,
+    methods: ['GET', 'POST', 'PUT', 'PATCH', 'DELETE', 'OPTIONS']
 }))
 
 
